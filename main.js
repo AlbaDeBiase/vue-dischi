@@ -20,3 +20,7 @@ var app = new Vue ({
     }
 
 })
+
+// BONUS 1: Creare una select con tutti i generi dei dischi. 
+// In base al genere che viene selezionato nella select, vengono visualizzati i cd corrispondenti.
+// N.B.: per fare questo punto non è necessario modificare l'array dei dati

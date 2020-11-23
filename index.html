@@ -11,9 +11,14 @@
     <body>
 
         <div id="container_dischi">
+            <select class="generiDischi" name="">
+                <option value=""></option>
+            </select>
             <ul v-for="disco in dischi">
                 <li class="poster"> <img :src="disco.poster" :alt="disco.title"> </li>
                 <li> {{disco.title}}</li>
+                <li>{{disco.author}}</li>
+                <li>{{disco.genre}}</li>
                 <li>{{disco.author}}</li>
             </ul>
         </div>
