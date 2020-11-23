@@ -9,9 +9,12 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div id="container">
-            <ul>
-                <li></li>
+
+        <div id="container_dischi">
+            <ul v-for="disco in dischi">
+                <li class="poster"> <img :src="disco.poster" :alt="disco.title"> </li>
+                <li> {{disco.title}}</li>
+                <li>{{disco.author}}</li>
             </ul>
         </div>
 

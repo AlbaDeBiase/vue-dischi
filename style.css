@@ -1,0 +1,13 @@
+#container_dischi {
+    width: 100%;
+    background-color: darkgrey;
+}
+
+#container_dischi li {
+    background-color: grey;
+    list-style-type: none;
+}
+
+.poster img {
+    width: 100px;
+}

@@ -4,7 +4,7 @@
 
 
 var app = new Vue ({
-    el:'#container',
+    el:'#container_dischi',
     data: {
         dischi:[] //array  vuoto nel quale visualizzerò i miei dischi
     },
