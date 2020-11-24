@@ -11,16 +11,17 @@
     <body>
 
         <div id="container_dischi">
+            <h1>I vinili della settimana</h1>
             <select class="generiDischi" name="">
-                <option value=""></option>
+                <option v-for="(disco) in dischi" value="genere">{{disco.genre}}</option>
             </select>
-            <ul v-for="disco in dischi">
-                <li class="poster"> <img :src="disco.poster" :alt="disco.title"> </li>
-                <li> {{disco.title}}</li>
-                <li>{{disco.author}}</li>
-                <li>{{disco.genre}}</li>
-                <li>{{disco.author}}</li>
-            </ul>
+            <div class="lista_dischi" v-for="disco in dischi">
+                <img class="poster" :src="disco.poster" :alt="disco.title">
+                <h1 class=title>{{disco.title}}</h1>
+                <p class="author">{{disco.author}}</p>
+                <p class="genre">{{disco.genre}}</p>
+                <p class="year">{{disco.year}}</p>
+            </div>
         </div>
 
 
