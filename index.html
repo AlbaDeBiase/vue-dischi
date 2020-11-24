@@ -12,10 +12,13 @@
 
         <div id="container_dischi">
             <h1>I vinili della settimana</h1>
-            <select class="generiDischi" name="">
-                <option v-for="(disco) in dischi" value="genere">{{disco.genre}}</option>
+            <select class="generiDischi" name="" v-model="selezionaGenere">
+                 <option value="tutto">Tutti i generi</option>
+                 <!-- v-for solo dellelemento dell'array che mi interessa stampare a video -->
+                <option v-for="genre in generi_musicali" :value="genre">{{genre}}</option>
             </select>
-            <div class="lista_dischi" v-for="disco in dischi">
+            <!-- //imposto una v-if in cui se il genere(elemento corrente è uguale a tutti i generi o se tutti i generi sono uguali al valore di default della select)  -->
+            <div class="lista_dischi" v-for="disco in dischi" v-if="disco.genre == selezionaGenere || selezionaGenere =='tutto'" >
                 <img class="poster" :src="disco.poster" :alt="disco.title">
                 <h1 class=title>{{disco.title}}</h1>
                 <p class="author">{{disco.author}}</p>

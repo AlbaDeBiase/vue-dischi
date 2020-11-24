@@ -2,11 +2,16 @@
 // cioè fare una chiamata ajax per recuperare una decina di dischi musicali e utilizzando vue,
 // stampare a schermo una card per ogni album.
 
+// BONUS 1: Creare una select con tutti i generi dei dischi.
+// In base al genere che viene selezionato nella select, vengono visualizzati i cd corrispondenti.
+// N.B.: per fare questo punto non è necessario modificare l'array dei dati
 
 var app = new Vue ({
     el:'#container_dischi',
     data: {
-        dischi:[] //array  vuoto nel quale visualizzerò i miei dischi
+        dischi:[], //array  vuoto nel quale visualizzerò i miei dischi
+        generi_musicali:[], //array vuoto dove visualizzero i miei generi
+        selezionaGenere: 'tutto' //stringa
     },
     mounted(){
         axios
@@ -15,28 +20,19 @@ var app = new Vue ({
             // recupero la risposta
         this.dischi = risposta.data.response;
         // console.log(this.dischi); visualizzo il mio array di oggetti in console
-        });
-
-
-            // creo un array vuoto
-            generi_musicali=[];
 
             // scorro l'array di dischi
             this.dischi.forEach((disco) => {
-                console.log(disco);
-               this.disco = disco.genre;
-                console.log(disco.genre);
-                // se genere non è incluso lo stampo
-            if (!this.generi_musicali.includes(this.disco.genre)) {
-                    this.generi_musicali.push(this.disco.genre);
-                    console.log(generi_musicali);
-                }
-            })
+                // console.log(disco);
 
-        } //chiudo mounted
+                // se genere non è incluso lo inserisco nell'array vuoto
+            if (!this.generi_musicali.includes(disco.genre)) {
+                    this.generi_musicali.push(disco.genre);
+                    console.log(disco.genre); //visualizzo i generi
+                }
+            });
+        });
+
+    } //chiudo mounted
 
 }) //chiudo Vue
-
-// BONUS 1: Creare una select con tutti i generi dei dischi.
-// In base al genere che viene selezionato nella select, vengono visualizzati i cd corrispondenti.
-// N.B.: per fare questo punto non è necessario modificare l'array dei dati
