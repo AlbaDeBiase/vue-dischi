@@ -11,7 +11,7 @@ var app = new Vue ({
     data: {
         dischi:[], //array  vuoto nel quale visualizzerò i miei dischi
         generi_musicali:[], //array vuoto dove visualizzero i miei generi
-        selezionaGenere: 'tutto' //stringa
+        selezionaGenere: 'tutto' //stringa che può essere anche vuota perchè non seleziono nessun genere
     },
     mounted(){
         axios
@@ -30,7 +30,11 @@ var app = new Vue ({
                     this.generi_musicali.push(disco.genre);
                     console.log(disco.genre); //visualizzo i generi
                 }
-            });
+            })
+            // ordino i dischi per anno di uscita
+            // this.dischi.sort(disco1,disco2){
+            //     return parseInt(disco1.year) - parseInt(disco2.year);
+            // };
         });
 
     } //chiudo mounted

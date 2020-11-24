@@ -12,12 +12,13 @@
 
         <div id="container_dischi">
             <h1>I vinili della settimana</h1>
-            <select class="generiDischi" name="" v-model="selezionaGenere">
+            <select class="generiDischi" @change= name="" v-model="selezionaGenere">
                  <option value="tutto">Tutti i generi</option>
                  <!-- v-for solo dellelemento dell'array che mi interessa stampare a video -->
                 <option v-for="genre in generi_musicali" :value="genre">{{genre}}</option>
             </select>
-            <!-- //imposto una v-if in cui se il genere(elemento corrente è uguale a tutti i generi o se tutti i generi sono uguali al valore di default della select)  -->
+            <!-- mostra la card solo se il genere del cd è uguale al genere selezionato o se il genere selzionato è vuoto(quando non seleziono niente) -->
+            <!-- tutto può essere anche stringa vuota (non seleziono niente) -->
             <div class="lista_dischi" v-for="disco in dischi" v-if="disco.genre == selezionaGenere || selezionaGenere =='tutto'" >
                 <img class="poster" :src="disco.poster" :alt="disco.title">
                 <h1 class=title>{{disco.title}}</h1>
